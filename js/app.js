@@ -53,19 +53,16 @@ for(let i = 0; i < teamMembers.length; i++){
     rowDomElement.append(divMemberElement);
 
     //CREO UN ELEMENTO OGGETTO <div class="card"></div> E LO APPENDO AL <div class="col-4"></div>
-    const cardDomElement = myCreateElement('div', ['card']);
-    divMemberElement.append(cardDomElement);
-    //INSERISCO IL CONTENUTO DELLA CARD
-    cardDomElement.innerHTML = 
-    `
-    <div class="photo">
+    const cardDomElement = myCreateElement('div', ['card'],    
+    `<div class="photo">
         <img src="./img/${currentMember.photo}">
     </div>
     <div class="name text-center"> 
         <h3>${currentMember.name}</h3>
         <span>${currentMember.role}</span>
     </div>
-    `
+    `);
+    divMemberElement.append(cardDomElement);
 };
 
 
@@ -78,9 +75,11 @@ function myCreateElement(tagName, classes, content = '') {
     for (let i = 0; i < classes.length; i++) {
         tag.classList.add(classes[i]);
     }
-    tag.innerHTML = content;
+    tag.innerHTML = content; 
     return tag;
 }
+
+
 
 
 
