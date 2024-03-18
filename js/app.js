@@ -1,5 +1,6 @@
 console.log("JS-OUR-TEAM");
 
+//DICHIARO UN ARRAY CON GLI OGGETTI 
 const teamMembers = [
     {
         name: 'Wayne Barnett',
@@ -9,12 +10,17 @@ const teamMembers = [
     {
         name: 'Angela Caroll',
         role: 'Chief Editor',
-        photo: 'angela-caroll-chied-editor-jpg'
+        photo: 'angela-caroll-chief-editor.jpg'
     },
     {
         name: 'Walter Gordon',
         role: 'Office Manager',
         photo: 'walter-gordon-office-manager.jpg'
+    },
+    {
+        name: 'Angela Lopez',
+        role: 'Social Media Manager',
+        photo: 'angela-lopez-social-media-manager.jpg'
     },
     {
         name: 'Scott Estrada',
@@ -30,6 +36,7 @@ const teamMembers = [
 
 console.log(teamMembers);
 
+//RECUPERO OGNI SINGOLO OGGETTO DELL'ARRAY
 for(let i = 0; i < teamMembers.length; i++){
     // console.log(teamMembers[i]);
     const currentMember = teamMembers[i];
@@ -37,16 +44,31 @@ for(let i = 0; i < teamMembers.length; i++){
     console.log(currentMember.role);
     console.log(currentMember.photo);
 
+    //CREO UN ELEMENTO OGGETTO <div class="col-4"></div>
     const divMemberElement = document.createElement("div");
-    divMemberElement.className = "col";
+    divMemberElement.className = "col-4";
 
+    //RECUPERO IL GENITORE PADRE A CUI VADO AD APPENDERE IL MIO ELEMENTO OGGETTO CREATO
     const rowDomElement = document.querySelector(".row");
     // console.log(rowDomElement);
     rowDomElement.append(divMemberElement);
 
-    divMemberElement.innerHTML = currentMember.name + " " + currentMember.role + " " + currentMember.photo;
-}
-
+    //CREO UN ELEMENTO OGGETTO <div class="card"></div> E LO APPENDO AL <div class="col-4"></div>
+    const cardDomElement = document.createElement("div");
+    cardDomElement.className = "card";
+    divMemberElement.append(cardDomElement);
+    //INSERISCO IL CONTENUTO DELLA CARD
+    cardDomElement.innerHTML = 
+    `
+    <div class="photo">
+        <img src="./img/${currentMember.photo}">
+    </div>
+    <div class="name text-center"> 
+        <h3>${currentMember.name}</h3>
+        <span>${currentMember.role}</span>
+    </div>
+    `
+};
 
 
 
