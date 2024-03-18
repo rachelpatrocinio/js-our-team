@@ -45,8 +45,7 @@ for(let i = 0; i < teamMembers.length; i++){
     console.log(currentMember.photo);
 
     //CREO UN ELEMENTO OGGETTO <div class="col-4"></div>
-    const divMemberElement = document.createElement("div");
-    divMemberElement.className = "col-4";
+    const divMemberElement = myCreateElement('div', ['col-4']);
 
     //RECUPERO IL GENITORE PADRE A CUI VADO AD APPENDERE IL MIO ELEMENTO OGGETTO CREATO
     const rowDomElement = document.querySelector(".row");
@@ -54,8 +53,7 @@ for(let i = 0; i < teamMembers.length; i++){
     rowDomElement.append(divMemberElement);
 
     //CREO UN ELEMENTO OGGETTO <div class="card"></div> E LO APPENDO AL <div class="col-4"></div>
-    const cardDomElement = document.createElement("div");
-    cardDomElement.className = "card";
+    const cardDomElement = myCreateElement('div', ['card']);
     divMemberElement.append(cardDomElement);
     //INSERISCO IL CONTENUTO DELLA CARD
     cardDomElement.innerHTML = 
@@ -69,6 +67,20 @@ for(let i = 0; i < teamMembers.length; i++){
     </div>
     `
 };
+
+
+
+
+// My Functions //////////////////////////////////////////////////////////////////////////////////////
+
+function myCreateElement(tagName, classes, content = '') {
+    const tag = document.createElement(tagName);
+    for (let i = 0; i < classes.length; i++) {
+        tag.classList.add(classes[i]);
+    }
+    tag.innerHTML = content;
+    return tag;
+}
 
 
 
