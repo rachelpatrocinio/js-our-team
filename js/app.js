@@ -36,4 +36,21 @@ for(let i = 0; i < teamMembers.length; i++){
     console.log(currentMember.name);
     console.log(currentMember.role);
     console.log(currentMember.photo);
+
+    const divMemberElement = document.createElement("div");
+    divMemberElement.className = "col";
+
+    const rowDomElement = document.querySelector(".row");
+    // console.log(rowDomElement);
+    rowDomElement.append(divMemberElement);
+
+    divMemberElement.innerHTML = currentMember.name + " " + currentMember.role + " " + currentMember.photo;
 }
+
+
+
+
+
+
+
+
